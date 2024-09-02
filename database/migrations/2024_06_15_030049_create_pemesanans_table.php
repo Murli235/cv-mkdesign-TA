@@ -23,6 +23,7 @@ return new class extends Migration
             $table->integer('luas_bangunan');
             $table->string('designType');
             $table->integer('cost');
+            $table->integer('cost_paid')->default(0);
             $table->string('status');
             $table->string('paymentReceipt')->nullable();
             $table->timestamps();

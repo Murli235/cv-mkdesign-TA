@@ -162,6 +162,29 @@
                                                         </div>
                                                     @enderror
                                                 </div>
+                                                <div class="form-group col-md-6 mb-3">
+                                                    <label for="cost_paid" class="form-label">Total Paid</label>
+                                                    <input type="number"
+                                                    class="form-control @error('cost_paid') is-invalid @enderror"
+                                                    id="cost_paid" name="cost_paid"
+                                                    value="{{ $pemesanan->cost_paid }}">
+                                                    @error('cost_paid')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-md-6 mb-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span>Status</span>
+                                                        <a href="{{ asset('img/payment/pemesanan/' . $pemesanan->paymentReceipt) }}"
+                                                            class="text-white"
+                                                            target="_blank">
+                                                            <img width="45" height="45" src="{{ asset('img/payment/pemesanan/' . $pemesanan->paymentReceipt) }}" alt="">
+                                                            <input type="text" value="{{$pemesanan->paymentReceipt}}" hidden>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
                                             @if ($pemesanan->status == 'Unpaid')
                                                 <input type="file" id="files" class="d-none" name="file"

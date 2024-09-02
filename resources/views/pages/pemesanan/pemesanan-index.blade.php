@@ -56,12 +56,13 @@
                                             <th style="width: 3%">No</th>
                                             <th>Name</th>
                                             <th>Project</th>
-                                            <th>Email</th>
                                             <th>Phone</th>
                                             <th>Jumlah Tingkat</th>
                                             <th>Luas Bangunan</th>
                                             <th>Type</th>
                                             <th>Cost</th>
+                                            <th>Paid</th>
+                                            <th>Underpayment</th>
                                             <th>Status</th>
                                             <th>Create At</th>
                                             {{-- <th>Created At</th> --}}
@@ -84,9 +85,6 @@
                                                     {{ $pemesanan->projectName }}
                                                 </td>
                                                 <td>
-                                                    {{ $pemesanan->email }}
-                                                </td>
-                                                <td>
                                                     {{ $pemesanan->phone }}
                                                 </td>
                                                 <td>
@@ -100,6 +98,12 @@
                                                 </td>
                                                 <td>
                                                     Rp.{{ number_format($pemesanan->cost) }}
+                                                </td>
+                                                <td>
+                                                    Rp.{{ number_format($pemesanan->cost_paid) }}
+                                                </td>
+                                                <td>
+                                                    Rp.{{ number_format($pemesanan->cost - $pemesanan->cost_paid) }}
                                                 </td>
                                                 <td>
                                                     @if ($pemesanan->status == 'Paid')

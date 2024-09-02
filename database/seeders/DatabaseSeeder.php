@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             Project::create([
                 'name' => 'Project Dumies ' . $i,
                 'theme' => 'MODERN CLASSIC ' . $i,
-                'category' => 'RESIDENTIAL ' . $i,
+                'category' => 'eksterior',
                 'description' => 'Luas ruangan terbatas dapat tetap memenuhi kebutuhan dari penggunanya jika didesain dengan tepat. Penggunaan kabinet kabinet tinggi yang efisien dan penyusunan layout yang baik dapat memaksimalkan efektifitas interior. Penggunaan palet warna yang terang dan netral dapat memberikan kesan luas dan lega. Tambahan warna warna earthy dapat menjadi aksen yang kontras pada interior.'
             ]);
 
@@ -107,32 +107,32 @@ class DatabaseSeeder extends Seeder
         //     'comment' => fake()->text()
         // ]);
 
-        // Survei::create([
-        //     'name' => fake()->name(),
-        //     'projectName' => 'Rumah Idaman ' . fake()->safeColorName(),
-        //     'email' => fake()->safeEmail(),
-        //     'phone' => fake()->phoneNumber(),
-        //     'city' => fake()->city(),
-        //     'address' => fake()->address(),
-        //     'surveiDate' => fake()->date('Y-m-d'),
-        //     'surveiTime' => '09:00 - Selesai',
-        //     'designType' => 'Interior',
-        //     'cost' => 400000,
-        //     'status' => 'Paid',
-        //     'paymentReceipt' => 'avatar-1.png'
-        // ]);
+        Survei::create([
+            'name' => fake()->name(),
+            'projectName' => 'Rumah Idaman ' . fake()->safeColorName(),
+            'email' => fake()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
+            'city' => fake()->city(),
+            'address' => fake()->address(),
+            'surveiDate' => fake()->date('Y-m-d'),
+            'surveiTime' => '09:00 - Selesai',
+            'designType' => 'Interior',
+            'cost' => 400000,
+            'status' => 'Paid',
+            'paymentReceipt' => 'avatar-1.png'
+        ]);
 
-        // Pemesanan::create([
-        //     'name' => fake()->name(),
-        //     'projectName' => 'Rumah Idaman ' . fake()->safeColorName(),
-        //     'email' => fake()->safeEmail(),
-        //     'phone' => fake()->phoneNumber(),
-        //     'jumlah_tingkat' => fake()->numberBetween(1, 5),
-        //     'luas_bangunan' => fake()->numberBetween(1, 10),
-        //     'designType' => 'Paket A',
-        //     'cost' => 400000,
-        //     'status' => 'Paid',
-        //     'paymentReceipt' => 'avatar-1.png'
-        // ]);
+        Pemesanan::create([
+            'name' => fake()->name(),
+            'projectName' => 'Rumah Idaman ' . fake()->safeColorName(),
+            'email' => fake()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
+            'jumlah_tingkat' => fake()->numberBetween(1, 5),
+            'luas_bangunan' => fake()->numberBetween(1, 10),
+            'designType' => 'Paket A',
+            'cost' => 400000,
+            'status' => 'Paid',
+            'paymentReceipt' => 'avatar-1.png'
+        ]);
     }
 }

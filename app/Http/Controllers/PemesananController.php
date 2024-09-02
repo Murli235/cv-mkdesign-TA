@@ -104,7 +104,8 @@ class PemesananController extends Controller
             "jumlah_tingkat" => 'required',
             "luas_bangunan" => 'required',
             "type" => 'required',
-            "file" => 'required|mimes:jpg,jpeg,png,bmp|max:20000'
+            "file" => 'sometimes|mimes:jpg,jpeg,png,bmp|max:20000',
+            'cost_paid' => 'sometimes'
         ]);
 
         if ($request->type == 'Paket A') {
@@ -121,9 +122,13 @@ class PemesananController extends Controller
 
         $cost = $hargaPaket * $request->luas_bangunan * $request->jumlah_tingkat;
 
-        $files      = $request->file('file');
-        $path = uniqid() . '.' . $files->getClientOriginalExtension();
-        $files->move('img/payment/pemesanan/', $path);
+        if(!$request->file('file')){
+            $path = $request->paymentReceipt;
+        }else{
+            $files = $request->file('file');
+            $path = uniqid() . '.' . $files->getClientOriginalExtension();
+            $files->move('img/payment/pemesanan/', $path);
+        }
 
         $pemesanan->update([
             "name" => $request->name,
@@ -134,6 +139,7 @@ class PemesananController extends Controller
             "luas_bangunan" => $request->luas_bangunan,
             "designType" => $request->type,
             'cost' => $cost,
+            'cost_paid' => intval($request->cost_paid)  ,
             'status' => 'Paid',
             'paymentReceipt' => $path
         ]);
