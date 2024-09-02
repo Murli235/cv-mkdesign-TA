@@ -30,8 +30,9 @@ class BerandaController extends Controller
     public function ourProject()
     {
         $type_menu = 'ourProject';
-        $projects = Project::with('Galery')->get();
-        return view('pages.beranda.our-project-index', compact('type_menu', 'projects'));
+        $projects_eksterior = Project::with('Galery')->where('category', '=', 'eksterior')->get();
+        $projects_interior = Project::with('Galery')->where('category', '=', 'interior')->get();
+        return view('pages.beranda.our-project-index', compact('type_menu', 'projects_eksterior', 'projects_interior'));
     }
 
     public function ourProjectDetail(Project $project)

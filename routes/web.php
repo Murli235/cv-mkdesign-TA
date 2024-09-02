@@ -21,7 +21,7 @@ Route::prefix('pricing')->group(function () {
 
 Route::get('/about', [BerandaController::class, 'aboutUsIndex'])->name('aboutUsIndex.index');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::prefix('pricing')->group(function () {
         Route::get('pemesanan', [BerandaController::class, 'indexPemesanan'])->name('pemesanans.index');
         Route::post('pemesanan/store', [BerandaController::class, 'storePemesanan'])->name('storePemesanan.index');
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post('storeTestimoni', [BerandaController::class, 'storeTestimoni'])->name('storeTestimoni');
 
     Route::resource('home', DashboardController::class);
-    Route::resource('profile', ProfileController::class)->middleware('isAdmin');
+    Route::resource('profile', ProfileController::class);
     Route::resource('about-us', AboutUsController::class);
     Route::resource('users', UsersController::class);
     Route::resource('project', ProjectController::class);

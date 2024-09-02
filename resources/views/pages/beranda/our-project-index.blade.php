@@ -28,34 +28,75 @@
             </div>
         </div>
     </div>
-    <div class="list-project">
-        <div class="container-fluid">
-            <div class="row px-1 px-md-5 py-3 py-md-5">
-                @foreach ($projects as $project)
-                    <div class="col-md-4 mb-5">
-                        <div class="card project">
-                            <div class="card-body p-4">
-                                <div class="row p-0">
-                                    @foreach ($project->Galery->take(1) as $galery)
-                                        <div class="col-md-12 p-1" data-aos="zoom-in" data-aos-duration="700">
-                                            <div class="gallery gallery-fw">
-                                                <div class="gallery-item"
-                                                    data-image="{{ asset('img/galery/' . $galery->image) }}"
-                                                    data-title="Image 1" class="img-fluid"></div>
-                                            </div>
+    <div class="list-project px-2">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-exterior-tab" data-bs-toggle="tab" data-bs-target="#nav-exterior" type="button" role="tab" aria-controls="nav-exterior" aria-selected="true">Eksterior</button>
+                <button class="nav-link" id="nav-interior-tab" data-bs-toggle="tab" data-bs-target="#nav-interior" type="button" role="tab" aria-controls="nav-interior" aria-selected="false">Interior</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-exterior" role="tabpanel" aria-labelledby="nav-exterior-tab">
+                <div class="container-fluid">
+                    <div class="row px-1 px-md-5 py-3 py-md-5">
+                        @foreach ($projects_eksterior as $project)
+                            <div class="col-md-4 mb-5">
+                                <div class="card project">
+                                    <div class="card-body p-4">
+                                        <div class="row p-0">
+                                            @foreach ($project->Galery->take(1) as $galery)
+                                                <div class="col-md-12 p-1" data-aos="zoom-in" data-aos-duration="700">
+                                                    <div class="gallery gallery-fw">
+                                                        <div class="gallery-item"
+                                                            data-image="{{ asset('img/galery/' . $galery->image) }}"
+                                                            data-title="Image 1" class="img-fluid"></div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
-                                    @endforeach
+                                        <h2 class="card-title mt-4 text-uppercase fw-semibold">{{ $project->theme }}</h2>
+                                        <h5 class="card-title text-uppercase fw-semibold">{{ $project->name }}</h5>
+                                        </p>
+                                        <a href="{{ route('ourProjectDetail.index', $project) }}"
+                                            class="btn btn-md btn-outline-dark">Lihat
+                                            Project</a>
+                                    </div>
                                 </div>
-                                <h2 class="card-title mt-4 text-uppercase fw-semibold">{{ $project->theme }}</h2>
-                                <h5 class="card-title text-uppercase fw-semibold">{{ $project->name }}</h5>
-                                </p>
-                                <a href="{{ route('ourProjectDetail.index', $project) }}"
-                                    class="btn btn-md btn-outline-dark">Lihat
-                                    Project</a>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-interior" role="tabpanel" aria-labelledby="nav-interior-tab">
+                <div class="container-fluid">
+                    <div class="row px-1 px-md-5 py-3 py-md-5">
+                        @foreach ($projects_interior as $project)
+                            <div class="col-md-4 mb-5">
+                                <div class="card project">
+                                    <div class="card-body p-4">
+                                        <div class="row p-0">
+                                            @foreach ($project->Galery->take(1) as $galery)
+                                                <div class="col-md-12 p-1" data-aos="zoom-in" data-aos-duration="700">
+                                                    <div class="gallery gallery-fw">
+                                                        <div class="gallery-item"
+                                                            data-image="{{ asset('img/galery/' . $galery->image) }}"
+                                                            data-title="Image 1" class="img-fluid"></div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        <h2 class="card-title mt-4 text-uppercase fw-semibold">{{ $project->theme }}</h2>
+                                        <h5 class="card-title text-uppercase fw-semibold">{{ $project->name }}</h5>
+                                        </p>
+                                        <a href="{{ route('ourProjectDetail.index', $project) }}"
+                                            class="btn btn-md btn-outline-dark">Lihat
+                                            Project</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </div>
         </div>
     </div>

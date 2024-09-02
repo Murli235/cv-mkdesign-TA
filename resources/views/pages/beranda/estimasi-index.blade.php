@@ -39,19 +39,19 @@
                             <div class="row">
                                 <div class="form-group col-md-12 mb-3">
                                     <label for="jumlah_tingkat" class="form-label">Jumlah Tingkat</label>
-                                    <input type="number" class="form-control @error('jumlah_tingkat') is-invalid @enderror"
+                                    <input type="number" min="1" oninput="this.value = Math.max(this.value, 0)" class="form-control @error('jumlah_tingkat') is-invalid @enderror"
                                         id="jumlah_tingkat" name="jumlah_tingkat" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 mb-3">
                                     <label class="form-label">Panjang Bangunan (m)</label>
-                                    <input type="number" class="form-control @error('panjang') is-invalid @enderror"
+                                    <input type="number" min="1" oninput="this.value = Math.max(this.value, 0)" class="form-control @error('panjang') is-invalid @enderror"
                                         id="panjang" name="panjang" required>
                                 </div>
                                 <div class="form-group col-md-6 mb-3">
                                     <label class="form-label">Lebar Bangunan (m)</label>
-                                    <input type="number" class="form-control @error('lebar') is-invalid @enderror"
+                                    <input type="number" min="1" oninput="this.value = Math.max(this.value, 0)" class="form-control @error('lebar') is-invalid @enderror"
                                         id="lebar" name="lebar" required>
                                 </div>
                             </div>
