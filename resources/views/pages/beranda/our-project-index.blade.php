@@ -28,17 +28,33 @@
             </div>
         </div>
     </div>
+
+    <div class="container mb-3">
+        <div class="col-6">
+            <label for="theme" class="form-label">Theme</label>
+            <select class="form-control" id="theme" name="theme" required>
+                <option value="all" {{ $q == 'all' ? 'selected' : '' }}>All</option>
+                <option value="classic" {{ $q == 'classic' ? 'selected' : '' }}>Classic</option>
+                <option value="modern" {{ $q == 'modern' ? 'selected' : '' }}>Modern</option>
+                <option value="minimalis" {{ $q == 'minimalis' ? 'selected' : '' }}>Minimalis</option>
+                <option value="vintage" {{ $q == 'vintage' ? 'selected' : '' }}>Vintage</option>
+            </select>
+        </div>
+    </div>
+
     <div class="list-project px-2">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-exterior-tab" data-bs-toggle="tab" data-bs-target="#nav-exterior" type="button" role="tab" aria-controls="nav-exterior" aria-selected="true">Eksterior</button>
-                <button class="nav-link" id="nav-interior-tab" data-bs-toggle="tab" data-bs-target="#nav-interior" type="button" role="tab" aria-controls="nav-interior" aria-selected="false">Interior</button>
+                <button class="nav-link active" id="nav-exterior-tab" data-bs-toggle="tab" data-bs-target="#nav-exterior"
+                    type="button" role="tab" aria-controls="nav-exterior" aria-selected="true">Eksterior</button>
+                <button class="nav-link" id="nav-interior-tab" data-bs-toggle="tab" data-bs-target="#nav-interior"
+                    type="button" role="tab" aria-controls="nav-interior" aria-selected="false">Interior</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-exterior" role="tabpanel" aria-labelledby="nav-exterior-tab">
                 <div class="container-fluid">
-                    <div class="row px-1 px-md-5 py-3 py-md-5">
+                    <div id="eksterior" class="row px-1 px-md-5 py-3 py-md-5">
                         @foreach ($projects_eksterior as $project)
                             <div class="col-md-4 mb-5">
                                 <div class="card project">
@@ -69,7 +85,7 @@
             </div>
             <div class="tab-pane fade" id="nav-interior" role="tabpanel" aria-labelledby="nav-interior-tab">
                 <div class="container-fluid">
-                    <div class="row px-1 px-md-5 py-3 py-md-5">
+                    <div id="interior" class="row px-1 px-md-5 py-3 py-md-5">
                         @foreach ($projects_interior as $project)
                             <div class="col-md-4 mb-5">
                                 <div class="card project">
@@ -140,5 +156,17 @@
                 backgroundImage: 'url(' + me.data('background') + ')'
             });
         });
+
+
+        $(document).ready(function() {
+            $('#theme').on('change', function() {
+                var selectedTheme = $(this).val().toLowerCase();
+                const url = `{{ route('ourProject.index') }}?theme=` + selectedTheme;
+
+                console.log(url);
+
+                window.location.href = url
+            })
+        })
     </script>
 @endpush

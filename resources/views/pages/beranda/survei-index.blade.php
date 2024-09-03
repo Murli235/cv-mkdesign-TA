@@ -120,13 +120,13 @@
                                             <label class="selectgroup-item">
                                                 <input type="radio" name="type" value="Eskterior"
                                                     class="selectgroup-input">
-                                                <span class="selectgroup-button">Eskterior</span>
+                                                <span class="selectgroup-button">Eksterior</span>
                                             </label>
                                             <label class="selectgroup-item">
                                                 <input type="radio" name="type" value="Interior & Eskterior"
                                                     class="selectgroup-input">
                                                 <span class="selectgroup-button">
-                                                    Interior & Eskterior
+                                                    Interior & Eksterior
                                                 </span>
                                             </label>
                                         </div>

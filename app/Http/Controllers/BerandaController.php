@@ -27,12 +27,27 @@ class BerandaController extends Controller
         return view('pages.beranda.beranda-index', compact('type_menu', 'projects'));
     }
 
-    public function ourProject()
+    public function ourProject(Request $request )
     {
+        $q = $request->query('theme') ?? 'all';
+
+        if($q === 'all'){
+            $projects_eksterior = Project::with('Galery')->where('category', '=', 'eksterior')->get();
+            $projects_interior = Project::with('Galery')->where('category', '=', 'interior')->get();
+        } else {
+            $projects_eksterior = Project::with('Galery')
+                ->where('category', '=', 'eksterior')
+                ->where('theme', 'LIKE', '%' . $q . '%')
+                ->get();
+            $projects_interior = Project::with('Galery')
+                ->where('category', '=', 'interior')
+                ->where('theme', 'LIKE', '%' . $q . '%')
+                ->get();
+        }
+
         $type_menu = 'ourProject';
-        $projects_eksterior = Project::with('Galery')->where('category', '=', 'eksterior')->get();
-        $projects_interior = Project::with('Galery')->where('category', '=', 'interior')->get();
-        return view('pages.beranda.our-project-index', compact('type_menu', 'projects_eksterior', 'projects_interior'));
+
+        return view('pages.beranda.our-project-index', compact('type_menu', 'projects_eksterior', 'projects_interior', 'q'));
     }
 
     public function ourProjectDetail(Project $project)

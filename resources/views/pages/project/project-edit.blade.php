@@ -49,10 +49,16 @@
                                                 </div>
                                                 <div class="form-group col-md-4 mb-3">
                                                     <label for="theme" class="form-label">Theme</label>
-                                                    <input type="text"
+                                                    {{-- <input type="text"
                                                         class="form-control @error('theme') is-invalid @enderror"
                                                         name="theme" id="theme" required
-                                                        value="{{ old('theme') ?? $project->theme }}">
+                                                        value="{{ old('theme') ?? $project->theme }}"> --}}
+                                                        <select class="form-control @error('theme') is-invalid @enderror" id="theme" name="theme" required>
+                                                            <option value="classic" {{$project->theme == 'classic' ? 'selected' : ''}}>Classic</option>
+                                                            <option value="modern" {{$project->theme == 'modern' ? 'selected' : ''}}>Modern</option>
+                                                            <option value="minimalis" {{$project->theme == 'minimalis' ? 'selected' : ''}}>Minimalis</option>
+                                                            <option value="vintage" {{$project->theme == 'vintage' ? 'selected' : ''}}>Vintage</option>
+                                                        </select>
                                                     @error('theme')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
