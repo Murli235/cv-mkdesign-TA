@@ -71,7 +71,7 @@
                                 <div class="mt-3 text-bold fw-bold">
                                     <p>Note</p>
                                     <p>- Pembayaran sebesar 50% dibayarkan pada saat pemesanan</p>
-                                    <p>- Pembayaran yang telah dilakukan tidak dapat dikembalikn</p>
+                                    <p>- Pembayaran yang telah dilakukan tidak dapat dikembalikan</p>
                                 </div>
                                 <div class="mt-3 text-end">
                                     <div class="mb-3">
